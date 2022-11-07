@@ -14,6 +14,7 @@ from plotting_utils import plot_profile, plot_quiver, plot_streamlines
 import scipy as sc
 import tifffile
 from time import perf_counter_ns
+import tqdm
 
 
 def run_lbm(data):
@@ -80,7 +81,7 @@ def run_lbm(data):
     
     # # Begin time loop
     tic = perf_counter_ns()
-    for ts in range(tf):
+    for ts in tqdm(range(tf)):
         # print(f"{ts = }")  # Print timestep
     
         # Compute macroscopic density, rho and velocity.
